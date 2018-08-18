@@ -1,20 +1,8 @@
-package main
+package two_sum
 
 import "fmt"
 
 func twoSum(nums []int, target int) []int {
-	for i := 0; i < len(nums); i++ {
-		for l := i + 1; l < len(nums); l++ {
-			if nums[l]+nums[i] == target {
-				return []int{nums[i], nums[l]}
-			}
-		}
-	}
-	return []int{}
-
-}
-
-func twoSum2(nums []int, target int) []int {
 	buff := make(map[int]int)
 	for i, num := range nums {
 		val, ok := buff[target-num]
