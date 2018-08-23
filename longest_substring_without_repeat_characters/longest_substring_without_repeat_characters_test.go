@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func TestlengthOfLongestSubstring(t *testing.T) {
+func TestLengthOfLongestSubstring(t *testing.T) {
 	testSet := []string{
 		"abcabcbb",
 		"aaaaaaaa",
@@ -19,7 +19,6 @@ func TestlengthOfLongestSubstring(t *testing.T) {
 		0,
 		3,
 	}
-
 	caseNum := 5
 	for i := 0; i < caseNum; i++ {
 		if length := lengthOfLongestSubstring(testSet[i]); length != resultSet[i] {
