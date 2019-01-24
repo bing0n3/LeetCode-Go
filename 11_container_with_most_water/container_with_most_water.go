@@ -5,15 +5,14 @@
 package container_with_most_water
 
 func maxArea(height []int) int {
-	len := len(height)
 	maxContainer := 0
-	for i := 0; i < len-1; i++ {
-		for j := i + 1; j < len; j++ {
+	for i := 0; i < len(height); i++ {
+		for j := i + 1; j < len(height); j++ {
 			tmp := 0
 			if height[i] > height[j] {
-				tmp = height[j] * (j - i + 1)
+				tmp = height[j] * (j - i)
 			} else {
-				tmp = height[i] * (j - i + 1)
+				tmp = height[i] * (j - i)
 			}
 			if tmp > maxContainer {
 				maxContainer = tmp
