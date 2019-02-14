@@ -8,7 +8,8 @@ func subsets(nums []int) [][]int {
 		for _, set := range ans {
 			tmp := make([]int, len(set)+1)
 			// append slice will effect the orignal array
-			copy(tmp, append(set, n))
+			// copy(tmp, append(set, n))
+			tmp = append(set, n)
 			newSets = append(newSets, tmp)
 		}
 		ans = append(ans, newSets...)
