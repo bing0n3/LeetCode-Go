@@ -37,3 +37,34 @@ func expandFromCenter(s string, left int, right int) int {
 	// left has minus 1, right has plus 1, so right - left will be larger 2 than the actual length, we should minus 1
 	return right - left - 1
 }
+
+// method 2 DP
+func longestPalindrome_dp(s string) string {
+	if len(s) == 0 || len(s) == 1 {
+		return s
+	}
+	length := len(s)
+	dp := make([][]bool, length)
+	for i := 0; i < length; i++ {
+		dp[i] = make([]bool, length)
+	}
+
+	resLen, right, left := 0, 0, 0
+
+	for i := length - 1; i >= 0; i-- {
+		for j := i; j < length; j++ {
+			if s[i] == s[j] && (j-i < 3 || dp[i+1][j-1]) {
+				dp[i][j] = true
+			} else {
+				dp[i][j] = false
+			}
+			if dp[i][j] && j-i+1 > resLen {
+				resLen = j - i + 1
+				left = i
+				right = j
+			}
+		}
+	}
+
+	return s[left:right]
+}
