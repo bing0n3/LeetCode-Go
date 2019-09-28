@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"reflect"
 	"strings"
 )
 
@@ -22,7 +23,7 @@ func compareString(A, B string) []int {
 		mindx := 25
 
 		for _, r := range s {
-			hashmap[int(r-'a')]++
+			hashmap[r-'a']++
 			mindx = min(mindx, int(r-'a'))
 		}
 		store[hashmap[mindx]]++
@@ -37,7 +38,8 @@ func compareString(A, B string) []int {
 		hashmap := [25]int{}
 
 		for _, r := range s {
-			hashmap[int(r-'a')]++
+			hashmap[r-'a']++
+			fmt.Println(reflect.TypeOf(r - 'a'))
 			mindx = min(mindx, int(r-'a'))
 		}
 		if hashmap[mindx] != 0 {
